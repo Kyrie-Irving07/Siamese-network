@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib import offsetbox
 
 
-def visualize(embed, x_test, y_test):
+def visualize(embed, x_test, y_test, keep_prob):
 
     # two ways of visualization: scale to fit [0,1] scale
     # feat = embed - np.min(embed, 0)
@@ -37,7 +37,10 @@ def visualize(embed, x_test, y_test):
 
     plt.axis([ax_min[0], ax_max[0], ax_min[1], ax_max[1]])
     # plt.xticks([]), plt.yticks([])
-    plt.title('Embedding from the last layer of the network')
+    if keep_prob == 1:
+        plt.title('Embedding from the last layer of the network without dropout')
+    else:
+        plt.title('Embedding from the last layer of the network with keep_probability : %.2f' %keep_prob)
     plt.show()
 
 if __name__ == "__main__":

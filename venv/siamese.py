@@ -4,7 +4,7 @@ class siamese:
     def __init__(self):
         self.image1 = tf.placeholder(dtype=tf.float32, shape=[None, 784], name="image1")
         self.image2 = tf.placeholder(dtype=tf.float32, shape=[None, 784], name="image2")
-
+        self.keep_prob = tf.placeholder(dtype=tf.float32)
         with tf.variable_scope("siamese") as scope:
             self.out1 = self.network(self.image1)
             scope.reuse_variables()
@@ -18,8 +18,11 @@ class siamese:
         net1 = tf.nn.relu(net1)
         net2 = self.layer(net1, 1024, "net2")
         net2 = tf.nn.relu(net2)
-        net3 = self.layer(net2, 2, "net3")
-        return net3
+        net3 = self.layer(net2, 512, "net3")
+        net3 = tf.nn.relu(net3)
+        net4 = self.layer(net3, 2, "net4")
+        net4 = tf.nn.dropout(net4, keep_prob=self.keep_prob)
+        return net4
     
     def layer(self,prev,next,name):
         initializer = tf.truncated_normal_initializer(stddev=0.1)

@@ -38,7 +38,8 @@ def visualize(embed, x_test, y_test, keep_prob):
     plt.axis([ax_min[0], ax_max[0], ax_min[1], ax_max[1]])
     # plt.xticks([]), plt.yticks([])
     if keep_prob == 1:
-        plt.title('Embedding from the last layer of the network without dropout')
+        #plt.title('Embedding from the last layer of the network without dropout')
+        plt.title('Embedding from the last layer of the network with regularization')
     else:
         plt.title('Embedding from the last layer of the network with keep_probability : %.2f' %keep_prob)
     plt.show()

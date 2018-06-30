@@ -16,9 +16,9 @@ class siamese:
     def network(self, x):
         net1 = self.layer(x, 1024, "net1")
         net1 = tf.nn.relu(net1)
-        net2 = self.layer(net1, 1024, "net2")
+        net2 = self.layer(net1, 512, "net2")
         net2 = tf.nn.relu(net2)
-        net3 = self.layer(net2, 512, "net3")
+        net3 = self.layer(net2, 256, "net3")
         net3 = tf.nn.relu(net3)
         net4 = self.layer(net3, 2, "net4")
         net4 = tf.nn.dropout(net4, keep_prob=self.keep_prob)

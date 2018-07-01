@@ -9,7 +9,7 @@ var1 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/
 var2 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/net2')]
 var3 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/net3')]
 var4 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/net4')]
-train_step12 = tf.train.AdamOptimizer(0.001).minimize(siamese.loss, var_list=[var1, var2])
+train_step12 = tf.train.AdamOptimizer(0.005).minimize(siamese.loss, var_list=[var1, var2])
 train_step34 = tf.train.AdamOptimizer(0.001).minimize(siamese.loss, var_list=[var3, var4])
 
 train_step_all = tf.train.AdamOptimizer(0.001).minimize(siamese.loss, var_list=tf.trainable_variables())
@@ -28,13 +28,13 @@ for i in range(20001):
         train_step = train_step12
     else:
         train_step = train_step34
-    _, loss = sess.run([train_step, siamese.loss], feed_dict={siamese.image1: x1,
-                                                              siamese.image2: x2,
-                                                              siamese.y_: answer,
-                                                              siamese.keep_prob: 0.5})
+    _, loss = sess.run([train_step_all, siamese.loss], feed_dict={siamese.image1: x1,
+                                                                  siamese.image2: x2,
+                                                                  siamese.y_: answer,
+                                                                  siamese.keep_prob: keep_prob})
     if i % 10 == 0:
         print("%d step, loss = %.3f" % (i, loss))
-    if i % 6000 == 0:
+    if i % 5000 == 0:
         print(var1, var2, var3, var4)
         embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: mnist.test.images,
                                                            siamese.keep_prob: 1})

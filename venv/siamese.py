@@ -20,7 +20,7 @@ class siamese:
         net2 = tf.nn.relu(net2)
         net3 = self.layer(net2, 512, "net3")
         net3 = tf.nn.relu(net3)
-        net4 = self.layer(net2, 2, "net4")
+        net4 = self.layer(net3, 2, "net4")
         net4 = tf.nn.dropout(net4, keep_prob=self.keep_prob)
         return net4
     
@@ -37,9 +37,11 @@ class siamese:
         margine = tf.constant(5, dtype=tf.float32)
         label = self.y_
         label_ = tf.subtract(1.0, label)
-        term1 = tf.pow(tf.reduce_sum(tf.multiply(distance, label), 0), 2)
-        term2 = tf.pow(tf.reduce_sum(tf.multiply(tf.maximum(tf.subtract(margine, distance), 0), label_)), 2)
-        regularizer = tf.contrib.layers.l2_regularizer(scale=100.0/100)
+        term1 = tf.reduce_sum(tf.multiply(distance, label), 0)
+        term2 = tf.reduce_sum(tf.multiply(tf.maximum(tf.subtract(margine, distance), 0), label_))
+        term1 = tf.pow(term1, 2) + term1
+        term2 = tf.pow(term2, 2) + term2
+        regularizer = tf.contrib.layers.l2_regularizer(scale=1.0/100)
         reg_term = tf.contrib.layers.apply_regularization(regularizer)
-        loss_of_siamese = term1 + term2 #+ reg_term
+        loss_of_siamese = term1 + term2 + reg_term
         return loss_of_siamese 

@@ -16,9 +16,9 @@ class siamese:
     def network(self, x):
         net1 = self.layer(x, 1024, "net1")
         net1 = tf.nn.relu(net1)
-        net2 = self.layer(net1, 512, "net2")
+        net2 = self.layer(net1, 1024, "net2")
         net2 = tf.nn.relu(net2)
-        net3 = self.layer(net2, 256, "net3")
+        net3 = self.layer(net2, 512, "net3")
         net3 = tf.nn.relu(net3)
         net4 = self.layer(net3, 2, "net4")
         net4 = tf.nn.dropout(net4, keep_prob=self.keep_prob)
@@ -39,7 +39,7 @@ class siamese:
         label_ = tf.subtract(1.0, label)
         term1 = tf.reduce_sum(tf.multiply(distance, label), 0)
         term2 = tf.reduce_sum(tf.multiply(tf.maximum(tf.subtract(margine, distance), 0), label_))
-        regularizer = tf.contrib.layers.l2_regularizer(scale=5.0/100)
+        regularizer = tf.contrib.layers.l2_regularizer(scale=15.0/100)
         reg_term = tf.contrib.layers.apply_regularization(regularizer)
         loss_of_siamese = term1 + term2 + reg_term
         return loss_of_siamese 

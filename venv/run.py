@@ -22,7 +22,7 @@ keep_prob = 1
 for i in range(40001):
     x1, y1 = mnist.train.next_batch(100)
     x2, y2 = mnist.train.next_batch(100)
-    #answer = tf.cast(tf.equal(y1, y2), dtype=tf.float32)
+    # answer = tf.cast(tf.equal(y1, y2), dtype=tf.float32)
     answer = (y1 == y2).astype(float)
     if i % 10000 < 3000:
         train_step = train_step12

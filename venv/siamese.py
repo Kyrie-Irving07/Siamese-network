@@ -44,4 +44,8 @@ class siamese:
         regularizer = tf.contrib.layers.l2_regularizer(scale=1.0/100)
         reg_term = tf.contrib.layers.apply_regularization(regularizer)
         loss_of_siamese = term1 + term2 + reg_term
-        return loss_of_siamese 
+        return loss_of_siamese
+
+    def SENet(selfself, net, rate):
+        shape = net.getshape()
+        pass

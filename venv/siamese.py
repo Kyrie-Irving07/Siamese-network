@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 
 class siamese:
     def __init__(self):
@@ -14,22 +15,22 @@ class siamese:
         self.loss = self.loss_of_siamese()
 
     def network(self, x):
-        net1 = self.layer(x, 1024, "net1")
+        x = tf.reshape(x, [-1, 28, 28, 1])
+        net1 = self.layer(x, [5, 5, 1, 64], "net1")
+        net1 = tf.nn.max_pool(net1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
         net1 = tf.nn.relu(net1)
-        net2 = self.layer(net1, 1024, "net2")
+        net2 = self.layer(net1, [5, 5, 64, 32], "net2")
+        net2 = tf.nn.max_pool(net2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
         net2 = tf.nn.relu(net2)
-        net3 = self.layer(net2, 512, "net3")
-        net3 = tf.nn.relu(net3)
-        net4 = self.layer(net3, 2, "net4")
-        net4 = tf.nn.dropout(net4, keep_prob=self.keep_prob)
-        return net4
+        net3 = self.senet(net2, 1.5)
+        return net3
     
-    def layer(self, prev, next, name):
+    def layer(self, prev, filter_size, name):
         initializer = tf.truncated_normal_initializer(stddev=0.1)
-        w = tf.get_variable(name=name + 'w', shape=[prev.get_shape()[1], next], initializer=initializer)
-        b = tf.get_variable(name=name + 'b', initializer=tf.constant(0.1, shape=[next], dtype=tf.float32))
-        tf.add_to_collection(tf.GraphKeys.WEIGHTS, w)
-        output = tf.nn.bias_add(tf.matmul(prev, w), b)
+        w = tf.get_variable(name=name + 'w', shape=filter_size, initializer=initializer)
+        b = tf.get_variable(name=name + 'b', initializer=tf.constant(0.1, shape=[filter_size[3]], dtype=tf.float32))
+        #tf.add_to_collection(tf.GraphKeys.WEIGHTS, w)
+        output = tf.nn.conv2d(prev, w, [1,1,1,1], padding='SAME') + b
         return output
     
     def loss_of_siamese(self):
@@ -46,6 +47,22 @@ class siamese:
         loss_of_siamese = term1 + term2 + reg_term
         return loss_of_siamese
 
-    def SENet(selfself, net, rate):
-        shape = net.getshape()
-        pass
+    def senet(self, net, rate):
+        Fsq = tf.nn.avg_pool(net, ksize=[1, 7, 7, 1], strides=[1, 1, 1, 1], padding='SAME')
+        Fsq = tf.reshape(Fsq, [-1, 32])
+        w1 = tf.get_variable('w1', shape=[32, int(32 / rate)], initializer=tf.truncated_normal_initializer(stddev=0.1))
+        b1 = tf.get_variable('b1', initializer=tf.constant(0.1, dtype=tf.float32, shape=[int(32 / rate)]))
+        Fsq = tf.matmul(Fsq, w1) + b1
+        Fsq = tf.nn.relu(Fsq)
+        w2 = tf.get_variable('w2', shape=[int(32 / rate), 32], initializer=tf.truncated_normal_initializer(stddev=0.1))
+        b2 = tf.get_variable('b2', initializer=tf.constant(0.1, dtype=tf.float32, shape=[32]))
+        Fsq = tf.matmul(Fsq, w2) + b2
+        output = net * Fsq
+        output = tf.reshape(output, [-1, 7*7*32])
+        w = tf.get_variable('w', shape=[7*7*32, 2], initializer=tf.truncated_normal_initializer(stddev=0.1))
+        b = tf.get_variable('b', initializer=tf.constant(0.1, tf.float32, shape=[2]))
+        output = tf.matmul(output, w) + b
+        tf.add_to_collection(tf.GraphKeys.WEIGHTS, w)
+        tf.add_to_collection(tf.GraphKeys.WEIGHTS, w1)
+        tf.add_to_collection(tf.GraphKeys.WEIGHTS, w2)
+        return output

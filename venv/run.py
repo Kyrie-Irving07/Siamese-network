@@ -5,14 +5,8 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=False)
 
 siamese = siamese.siamese()
-var1 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/net1')]
-var2 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/net2')]
-var3 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/net3')]
-var4 = [var for var in tf.trainable_variables() if var.name.startswith('siamese/net4')]
-train_step12 = tf.train.AdamOptimizer(0.0001).minimize(siamese.loss, var_list=[var1, var2])
-train_step34 = tf.train.AdamOptimizer(0.0001).minimize(siamese.loss, var_list=[var3, var4])
 
-train_step_all = tf.train.AdamOptimizer(0.00005).minimize(siamese.loss, var_list=tf.trainable_variables())
+train_step_all = tf.train.AdamOptimizer(0.005).minimize(siamese.loss, var_list=tf.trainable_variables())
 
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
@@ -24,12 +18,7 @@ for i in range(40001):
     x2, y2 = mnist.train.next_batch(100)
     # answer = tf.cast(tf.equal(y1, y2), dtype=tf.float32)
     answer = (y1 == y2).astype(float)
-    if i % 10000 < 3000:
-        train_step = train_step12
-    elif i % 10000 < 6000:
-        train_step = train_step34
-    else:
-        train_step = train_step_all
+    train_step = train_step_all
     _, loss = sess.run([train_step, siamese.loss], feed_dict={siamese.image1: x1,
                                                               siamese.image2: x2,
                                                               siamese.y_: answer,

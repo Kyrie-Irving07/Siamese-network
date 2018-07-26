@@ -26,7 +26,6 @@ for i in range(40001):
     if i % 10 == 0:
         print("%d step, loss = %.3f" % (i, loss))
     if i % 10000 == 0:
-        print(var1, var2, var3, var4)
         embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: mnist.test.images,
                                                            siamese.keep_prob: 1})
         x_test = mnist.test.images.reshape([-1, 28, 28])

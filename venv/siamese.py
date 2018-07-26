@@ -30,7 +30,7 @@ class siamese:
         w = tf.get_variable(name=name + 'w', shape=filter_size, initializer=initializer)
         b = tf.get_variable(name=name + 'b', initializer=tf.constant(0.1, shape=[filter_size[3]], dtype=tf.float32))
         #tf.add_to_collection(tf.GraphKeys.WEIGHTS, w)
-        output = tf.nn.conv2d(prev, w, [1,1,1,1], padding='SAME') + b
+        output = tf.nn.conv2d(prev, w, [1, 1, 1, 1], padding='SAME') + b
         return output
     
     def loss_of_siamese(self):
@@ -57,7 +57,7 @@ class siamese:
         w2 = tf.get_variable('w2', shape=[int(32 / rate), 32], initializer=tf.truncated_normal_initializer(stddev=0.1))
         b2 = tf.get_variable('b2', initializer=tf.constant(0.1, dtype=tf.float32, shape=[32]))
         Fsq = tf.matmul(Fsq, w2) + b2
-        output = net * Fsq
+        output = tf.reshape(net, [-1, 7*7, 32]) * tf.reshape(Fsq, [-1, 49, 32])
         output = tf.reshape(output, [-1, 7*7*32])
         w = tf.get_variable('w', shape=[7*7*32, 2], initializer=tf.truncated_normal_initializer(stddev=0.1))
         b = tf.get_variable('b', initializer=tf.constant(0.1, tf.float32, shape=[2]))

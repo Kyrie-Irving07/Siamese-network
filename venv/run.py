@@ -21,13 +21,11 @@ for i in range(40001):
     train_step = train_step_all
     _, loss = sess.run([train_step, siamese.loss], feed_dict={siamese.image1: x1,
                                                               siamese.image2: x2,
-                                                              siamese.y_: answer,
-                                                              siamese.keep_prob: keep_prob})
+                                                              siamese.y_: answer})
     if i % 10 == 0:
         print("%d step, loss = %.3f" % (i, loss))
     if i % 10000 == 0:
-        embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: mnist.test.images,
-                                                           siamese.keep_prob: 1})
+        embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: mnist.test.images})
         x_test = mnist.test.images.reshape([-1, 28, 28])
         y_test = mnist.test.labels
         visualize.visualize(embed, x_test, y_test, keep_prob)

@@ -24,8 +24,8 @@ for i in range(40001):
                                                               siamese.y_: answer})
     if i % 10 == 0:
         print("%d step, loss = %.3f" % (i, loss))
-    if i % 10000 == 0:
-        embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: mnist.test.images})
-        x_test = mnist.test.images.reshape([-1, 28, 28])
-        y_test = mnist.test.labels
-        visualize.visualize(embed, x_test, y_test, keep_prob)
+    # if i % 10000 == 0:
+        # embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: mnist.test.images})
+        # x_test = mnist.test.images.reshape([-1, 28, 28])
+        # y_test = mnist.test.labels
+        # visualize.visualize(embed, x_test, y_test, keep_prob)

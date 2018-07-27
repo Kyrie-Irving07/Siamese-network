@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41965630-a874-475d-b626-0a3fb759cd0f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/siamese.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/siamese.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,23 +14,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="siamese.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="siamese.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/siamese.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="-330">
+              <caret line="7" selection-start-line="7" selection-end-line="8" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+            <state relative-caret-position="1012">
+              <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+=======
             <state relative-caret-position="210">
               <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/run.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="122">
+              <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+            <state relative-caret-position="506">
+              <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+=======
             <state relative-caret-position="309">
               <caret line="27" selection-start-line="27" selection-end-line="27" />
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
+<<<<<<< HEAD
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -41,7 +70,21 @@
       <file leaf-file-name="visualize.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/visualize.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="1110">
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+            <state relative-caret-position="814">
+=======
             <state relative-caret-position="273">
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
+<<<<<<< HEAD
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
               <caret line="41" column="77" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
@@ -78,10 +121,23 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="ProjectFrameBounds" extendedState="7">
+=======
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
+    <option name="x" value="84" />
+    <option name="y" value="4" />
+    <option name="width" value="1401" />
+=======
+<<<<<<< HEAD
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
     <option name="x" value="85" />
     <option name="y" value="5" />
     <option name="width" value="1400" />
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
     <option name="height" value="990" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,15 +220,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="7" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09211554" />
+=======
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06933594" />
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34881422" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37450594" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -189,7 +258,70 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/venv/siamese.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="210">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+=======
+        <state relative-caret-position="1012">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+=======
+        <state relative-caret-position="1012">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="810">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+=======
+        <state relative-caret-position="506">
+          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+=======
+        <state relative-caret-position="506">
+          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/visualize.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="1230">
+=======
+        <state relative-caret-position="814">
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+=======
+        <state relative-caret-position="814">
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+          <caret line="41" column="77" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/siamese.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1290">
@@ -263,7 +395,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/visualize.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="1110">
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+        <state relative-caret-position="814">
+=======
         <state relative-caret-position="273">
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
+<<<<<<< HEAD
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
           <caret line="41" column="77" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
@@ -273,42 +419,82 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/tensorflow/python/framework/tensor_shape.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="506">
+          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+=======
         <state relative-caret-position="207">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/siamese.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/tensorflow/python/framework/ops.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="224">
+          <caret line="3391" selection-start-line="3391" selection-end-line="3391" />
+=======
         <state relative-caret-position="210">
           <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/tensorflow/python/framework/ops.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/tensorflow/python/framework/op_def_library.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="709" selection-start-line="709" selection-end-line="709" />
+        <state relative-caret-position="374">
+          <caret line="786" selection-start-line="786" selection-end-line="787" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/tensorflow/python/ops/gen_nn_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="1041" selection-start-line="1041" selection-end-line="1041" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/tensorflow/python/client/session.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="224">
+          <caret line="1315" selection-start-line="1315" selection-end-line="1315" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
+        <state relative-caret-position="1012">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+=======
         <state relative-caret-position="211">
           <caret line="899" selection-start-line="899" selection-end-line="899" />
+>>>>>>> a5771da2b52d02946f57a82d1acef60e2a91ce91
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="122">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/siamese.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+>>>>>>> 6f8f61c06e253fa32f0874791e2f444598b100dc
         </state>
       </provider>
     </entry>

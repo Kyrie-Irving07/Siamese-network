@@ -14,6 +14,13 @@ class siamese:
         self.y_ = tf.placeholder(dtype=tf.float32, shape=[None])
         self.loss = self.loss_of_siamese()
 
+    def accuracy(self):
+        distance = tf.sqrt(tf.reduce_sum(tf.pow(tf.subtract(self.out1, self.out2), 2), 1) + 1e-6)
+        accu = tf.cast(tf.less(distance, 3), dtype=tf.float32)
+        ans = tf.cast(tf.equal(self.y_, accu), dtype=tf.float32)
+        accu = tf.reduce_mean(ans)
+        return accu
+
     def network(self, x):
         x = tf.reshape(x, [-1, 28, 28, 1])
         net1 = self.conv(x, [5, 5, 1, 64], "net1")
@@ -28,7 +35,7 @@ class siamese:
         w = tf.get_variable(name=name + 'w', shape=filter_size, initializer=initializer)
         b = tf.get_variable(name=name + 'b', initializer=tf.constant(0.1, shape=[filter_size[3]], dtype=tf.float32))
         # tf.add_to_collection(tf.GraphKeys.WEIGHTS, w)
-        output = tf.nn.conv2d(prev, w, [1, 1, 1, 1], padding=padding) + b
+        output = tf.nn.conv2d(prev, w, strides=[1, 1, 1, 1], padding=padding) + b
         return tf.nn.relu(output)
     
     def loss_of_siamese(self):

@@ -27,7 +27,8 @@ class siamese:
         net1 = tf.nn.max_pool(net1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
         net2 = self.conv(net1, [5, 5, 64, 32], "net2")
         net2 = tf.nn.max_pool(net2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
-        net3 = self.senet(net2, 0.75)
+        net3 = self.fully_con(tf.reshape(net2, shape=[-1, 49 * 32]), 2, name="net3")
+        # net3 = self.senet(net2, 0.75)
         return net3
     
     def conv(self, prev, filter_size, name, padding='SAME'):

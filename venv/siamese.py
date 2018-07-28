@@ -28,7 +28,7 @@ class siamese:
         w = tf.get_variable(name=name + 'w', shape=filter_size, initializer=initializer)
         b = tf.get_variable(name=name + 'b', initializer=tf.constant(0.1, shape=[filter_size[3]], dtype=tf.float32))
         # tf.add_to_collection(tf.GraphKeys.WEIGHTS, w)
-        output = tf.nn.conv2d(prev, w, [1, 1, 1, 1], padding=padding) + b
+        output = tf.nn.conv2d(prev, w, strides=[1, 1, 1, 1], padding=padding) + b
         return tf.nn.relu(output)
     
     def loss_of_siamese(self):

@@ -53,7 +53,7 @@ for i in range(40001):
         print("%d step, loss = %.3f" % (i, loss))
 
     if i % 2000 == 0:
-        x1, y1 = mnist.test.next_batch(1000)
+        x1, y1 = mnist.test.next_batch(2000)
         embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: x1})
         x1 = x1.reshape([-1, 28, 28])
         visualize.visualize(embed, x1, y1, keep_prob)

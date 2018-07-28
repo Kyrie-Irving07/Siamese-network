@@ -23,11 +23,11 @@ class siamese:
 
     def network(self, x):
         x = tf.reshape(x, [-1, 28, 28, 1])
-        net1 = self.conv(x, [5, 5, 1, 64], "net1")
+        net1 = self.conv(x, [5, 5, 1, 128], "net1")
         net1 = tf.nn.max_pool(net1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
-        net2 = self.conv(net1, [5, 5, 64, 32], "net2")
+        net2 = self.conv(net1, [5, 5, 128, 64], "net2")
         net2 = tf.nn.max_pool(net2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
-        net3 = self.fully_con(tf.reshape(net2, shape=[-1, 49 * 32]), 2, name="net3")
+        net3 = self.fully_con(tf.reshape(net2, shape=[-1, 49 * 64]), 2, name="net3")
         # net3 = self.senet(net2, 0.75)
         return net3
     

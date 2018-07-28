@@ -53,7 +53,7 @@ for i in range(40001):
     if i % 10 == 0:
         print("%d step, loss = %.3f, accuracy = %.3f" % (i, loss, accuracy))
 
-    if i % 2000 == 0:
+    if i % 5000 == 0:
         x1, y1 = mnist.test.next_batch(2000)
         x2, y2 = mnist.test.next_batch(2000)
         answer = (y1 == y2).astype(float)

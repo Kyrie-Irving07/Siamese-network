@@ -8,7 +8,7 @@ class siamese:
         # self.keep_prob = tf.placeholder(dtype=tf.float32)
         with tf.variable_scope("siamese") as scope:
             self.out1 = self.network(self.image1)
-            scope.reuse_variables()
+            scope.reuse_variables()             #network中的变量共享
             self.out2 = self.network(self.image2)
 
         self.y_ = tf.placeholder(dtype=tf.float32, shape=[None])

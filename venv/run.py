@@ -30,9 +30,10 @@ for i in range(40001):
     x2, y2 = mnist.train.next_batch(100)
     answer = (y1 == y2).astype(float)
     train_step = train_step_all
-    _, loss, embed = sess.run([train_step, siamese.loss, siamese.out1], feed_dict={siamese.image1: x1,
-                                                                                   siamese.image2: x2,
-                                                                                   siamese.y_: answer})
+    _, loss, embed, accuracy = sess.run([train_step, siamese.loss, siamese.out1, siamese.accuracy()],
+                                        feed_dict={siamese.image1: x1,
+                                        siamese.image2: x2,
+                                        siamese.y_: answer})
     # print(tf.shape(x1).get_shape(), tf.shape(y1).get_shape(), tf.shape(embed).get_shape())
     '''
     if i != 0:
@@ -50,10 +51,20 @@ for i in range(40001):
         x0 = x0[100:]
     '''
     if i % 10 == 0:
-        print("%d step, loss = %.3f" % (i, loss))
+        print("%d step, loss = %.3f, accuracy = %.3f" % (i, loss, accuracy))
 
     if i % 2000 == 0:
         x1, y1 = mnist.test.next_batch(2000)
-        embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: x1})
+        x2, y2 = mnist.test.next_batch(2000)
+        answer = (y1 == y2).astype(float)
+        if i == 0:
+            embed = siamese.out1.eval(session=sess, feed_dict={siamese.image1: x1,
+                                                               siamese.image2: x2,
+                                                               siamese.y_: answer})
+        else:
+            accuracy, embed = sess.run([siamese.accuracy(), siamese.out1], feed_dict={siamese.image1: x1,
+                                                                                      siamese.image2: x2,
+                                                                                      siamese.y_: answer})
         x1 = x1.reshape([-1, 28, 28])
+        print("accuracy = %.3f" % accuracy)
         visualize.visualize(embed, x1, y1, keep_prob)

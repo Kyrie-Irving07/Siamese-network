@@ -45,8 +45,8 @@ class siamese:
         label_ = tf.subtract(1.0, label)
         term1 = tf.reduce_sum(tf.multiply(distance, label), 0)
         term2 = tf.reduce_sum(tf.multiply(tf.maximum(tf.subtract(margine, distance), 0), label_))
-        term1 = tf.pow(term1, 2) + term1
-        term2 = tf.pow(term2, 2) + term2
+        term1 = tf.add(tf.pow(term1, 2), term1)
+        term2 = tf.add(tf.pow(term2, 2), term2)
         # regularizer = tf.contrib.layers.l2_regularizer(scale=1.0/100)
         # reg_term = tf.contrib.layers.apply_regularization(regularizer)
         loss_of_siamese = term1 + term2  # + reg_term
